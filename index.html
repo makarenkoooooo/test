@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
+    <link rel="stylesheet" href="./css/adaptive.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container-header">
+        <a href="#" class="logo" aria-label="Главная страница">
+          <img src="./assets/icons/logo.png" alt="ASC Logo" />
+        </a>
+        <nav class="main-nav" aria-label="Основная навигация">
+          <ul class="nav-list">
+            <li><a href="#" class="nav-link">Главная</a></li>
+            <li><a href="#" class="nav-link">Каталог</a></li>
+            <li><a href="#" class="nav-link">Контакты</a></li>
+          </ul>
+        </nav>
+        <div class="cta-button">
+          <button type="button" aria-label="Сотрудничество">
+            Сотрудничество
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <div class="container-hero">
+          <div class="hero-content">
+            <div class="contact-info">
+              <p>Связаться с нами</p>
+              <p>+7 747-223-07-57</p>
+              <p>+7 747-692-37-59</p>
+            </div>
+            <h1>Промышленное оборудование</h1>
+            <p class="hero-content-info">
+              от мировых лидеров из Китая, <br />
+              России, Европы и Турции
+            </p>
+            <button class="order-button">Сделать заказ</button>
+          </div>
+          <div>
+            <img src="./assets/images/shesternya.png" alt="" />
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span>1500</span>
+            <p>доставленных товаров</p>
+          </div>
+          <div class="stat-item">
+            <span>1000</span>
+            <p>докупили еще товара</p>
+          </div>
+          <div class="stat-item">
+            <span>10</span>
+            <p>лет на рынке</p>
+          </div>
+          <div class="stat-item">
+            <span>631</span>
+            <p>довольных клиентов</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="categories">
+        <h2>Категории товаров</h2>
+        <div class="category-flex">
+          <div class="category-item">
+            <p>Электродвигатели</p>
+            <img src="./assets/images/category-1.png" alt="Электродвигатели" />
+          </div>
+          <div class="category-item">
+            <p>Частотные преобразователи</p>
+            <img
+              src="./assets/images/category-2.png"
+              alt="Частотные преобразователи"
+            />
+          </div>
+          <div class="category-item">
+            <p>Компрессоры OZEN</p>
+            <img src="./assets/images/category-3.png" alt="Компрессоры OZEN" />
+          </div>
+          <div class="category-item">
+            <p>Фильтровальное оборудование</p>
+            <img
+              src="./assets/images/category-4.png"
+              alt="Фильтровальное оборудование"
+            />
+          </div>
+          <div class="category-item">
+            <p>Насосное оборудование</p>
+            <img
+              src="./assets/images/category-5.png"
+              alt="Насосное оборудование"
+            />
+          </div>
+          <div class="category-item">
+            <p>Силовая автоматика</p>
+            <img
+              src="./assets/images/category-6.png"
+              alt="Силовая автоматика"
+            />
+          </div>
+          <div class="category-item">
+            <p>Конвейерное оборудование</p>
+            <img
+              src="./assets/images/category-7.png"
+              alt="Конвейерное оборудование"
+            />
+          </div>
+          <div class="category-item">
+            <p>Газоочистка</p>
+            <img src="./assets/images/category-8.png" alt="Газоочистка" />
+          </div>
+          <div class="category-item">
+            <p>Гидроцилиндры</p>
+            <img src="./assets/images/category-9.png" alt="Гидроцилиндры" />
+          </div>
+          <div class="category-item">
+            <p>Рукава высокого давления</p>
+            <img
+              src="./assets/images/category-10.png"
+              alt="рукава высокого давления"
+            />
+          </div>
+          <div class="category-item">
+            <p>Металлопрокат</p>
+            <img src="./assets/images/category-11.png" alt="Металлопрокат" />
+          </div>
+          <div class="category-item">
+            <p>Флотация</p>
+            <img src="./assets/images/category-12.png" alt="Флотация" />
+          </div>
+        </div>
+      </section>
+
+      <section class="applications">
+        <h2>Области применения</h2>
+        <div class="application-flex">
+          <div class="application-item">
+            Горно-металлургическая промышленность
+          </div>
+          <div class="application-item">Химическая промышленность</div>
+          <div class="application-item">Машиностроительная промышленность</div>
+          <div class="application-item">Цементная промышленность</div>
+        </div>
+      </section>
+
+      <section class="advantages">
+        <h2>Наши преимущества</h2>
+        <div class="advantage-flex">
+          <div class="advantage-item">Сертифицированное оборудование</div>
+          <div class="advantage-item">Гарантия на всю продукцию</div>
+          <div class="advantage-item">Большой складской запас</div>
+          <div class="advantage-item">Полный цикл работ от ТЗ до запуска</div>
+          <div class="advantage-item">
+            Использование современных САПР и уникальных технологий
+          </div>
+        </div>
+      </section>
+
+      <section class="partners">
+        <h2>Партнеры компании</h2>
+        <div class="partner-logos">
+          <img src="path-to-logo1.png" alt="Партнер 1" />
+          <img src="path-to-logo2.png" alt="Партнер 2" />
+          <img src="path-to-logo3.png" alt="Партнер 3" />
+          <img src="path-to-logo4.png" alt="Партнер 4" />
+        </div>
+      </section>
+    </main>
+
+    <!-- <footer class="site-footer">
+      <p>© ART STILL COMPANY</p>
+    </footer> -->
+    <script src="./js/index.js"></script>
+  </body>
+</html>
