@@ -64,3 +64,120 @@ document.addEventListener("DOMContentLoaded", function () {
     slider.scrollLeft = scrollLeft - walk;
   });
 });
+
+// кнопка контактов выплывающая
+
+document
+  .querySelector(".toggle-contact-block")
+  .addEventListener("click", function (event) {
+    event.preventDefault(); // Предотвращаем переход по ссылке
+    var contactBlock = document.querySelector(".contact-block");
+    contactBlock.classList.toggle("visible"); // Переключаем класс visible
+  });
+
+// Функция для копирования текста конкретного номера телефона в буфер обмена
+function copyPhoneNumber(element) {
+  var phoneNumber = element.textContent; // Получаем текст номера телефона
+  navigator.clipboard.writeText(phoneNumber).then(
+    function () {
+      alert("Номер скопирован: " + phoneNumber); // Показываем уведомление об успешном копировании
+    },
+    function (err) {
+      console.error("Ошибка при копировании текста: ", err); // Показываем ошибку в случае неудачи
+    }
+  );
+}
+
+// select
+
+document
+  .querySelector(".dropdown-selected")
+  .addEventListener("click", function () {
+    this.parentElement.classList.toggle("active");
+  });
+
+document.querySelectorAll(".dropdown-items li").forEach(function (item) {
+  item.addEventListener("click", function () {
+    document.querySelector(".dropdown-selected").innerText = this.innerText;
+    this.parentElement.parentElement.classList.remove("active");
+  });
+});
+
+// Закрытие списка при клике вне его
+window.addEventListener("click", function (e) {
+  if (!e.target.closest(".custom-dropdown")) {
+    document.querySelector(".custom-dropdown").classList.remove("active");
+  }
+});
+
+// category
+
+// Функция для показа нужного блока контента
+function showCategoryContent(categoryId) {
+  // Скрываем все блоки
+  document.querySelectorAll(".category-content").forEach(function (content) {
+    content.classList.remove("active");
+  });
+
+  // Показываем выбранный блок
+  const selectedContent = document.getElementById(categoryId);
+  if (selectedContent) {
+    selectedContent.classList.add("active");
+  }
+}
+
+// Устанавливаем начальное значение при загрузке страницы
+document.addEventListener("DOMContentLoaded", function () {
+  showCategoryContent("content-electrodvigateli"); // Изначально показываем Электродвигатели
+});
+
+// Обработчик события клика на выбранный элемент
+document
+  .querySelector(".dropdown-selected")
+  .addEventListener("click", function () {
+    this.nextElementSibling.classList.toggle("show"); // Показать/скрыть элементы списка
+  });
+
+// Обработчик выбора элемента из списка
+document.querySelectorAll(".dropdown-items li").forEach(function (item) {
+  item.addEventListener("click", function () {
+    const selectedCategory = this.innerText; // Получаем выбранную категорию
+    document.querySelector(".dropdown-selected").innerText = selectedCategory; // Обновляем текст в селекте
+    this.parentElement.classList.remove("show"); // Скрываем список
+
+    // Обновляем контент в зависимости от выбранной категории
+    const categoryMap = {
+      Электродвигатели: "content-electrodvigateli",
+      "Частотные преобразователи": "content-chastotnye-preobrazovateli",
+      "Фильтровальное оборудование": "content-filtr-oborudovanie",
+      "Насосные оборудования": "content-nasosnye-oborudovaniya",
+      "Силовая автоматика": "content-silovaya-avtomatika",
+      "Конвейерное оборудование": "content-konveyernoe-oborudovanie",
+      Газоочистка: "content-gazoochistka",
+      Гидроцилиндры: "content-gidrotsilindry",
+      Флотация: "content-flotaciya",
+      Металлопрокат: "content-metalloprokat",
+    };
+
+    showCategoryContent(categoryMap[selectedCategory]);
+  });
+});
+
+// Закрытие списка при клике вне его
+window.addEventListener("click", function (e) {
+  if (!e.target.closest(".custom-dropdown")) {
+    document.querySelector(".dropdown-items").classList.remove("show");
+  }
+});
+
+function setupDropdownListeners() {
+  const dropdownItems = document.querySelectorAll(".dropdown-items li");
+  dropdownItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      // Ваш код для отображения связанного контента
+    });
+  });
+}
+
+// Вызовите эту функцию при каждом изменении контента
+setupDropdownListeners();

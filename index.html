@@ -6,15 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/fonts.css" />
-    <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
     <link rel="stylesheet" href="./css/adaptive.css" />
-
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
+
   <body>
     <header class="site-header">
       <div class="container-header">
@@ -29,18 +23,46 @@
           </ul>
         </nav>
         <div class="cta-button">
-          <a href="#" aria-label="Сотрудничество"> Сотрудничество </a>
+          <a href="#" class="toggle-contact-block" aria-label="Сотрудничество">
+            Сотрудничество
+          </a>
         </div>
       </div>
-    </header>
+      <div class="contact-block">
+        <h3 class="contact-title">Номера для связи</h3>
+        <div class="contact-item">
+          <p class="phone-number" onclick="copyPhoneNumber(this)">
+            +7 702-369-0712
+          </p>
+          <p class="contact-name">Святослав</p>
+        </div>
+        <div class="contact-item">
+          <p class="phone-number" onclick="copyPhoneNumber(this)">
+            +7 702-369-0712
+          </p>
+          <p class="contact-name">Николай</p>
+        </div>
+        <div class="contact-item">
+          <p class="phone-number" onclick="copyPhoneNumber(this)">
+            +7 702-369-0712
+          </p>
+          <p class="contact-name">Иван</p>
+        </div>
 
+        <p class="copy-hint">Нажмите что бы скопировать</p>
+      </div>
+    </header>
     <main class="main">
       <section class="hero-section">
         <div class="hero-container">
           <div class="contact-info">
             <p>СВЯЗАТЬСЯ С НАМИ</p>
-            <span>+7 747-223-07-57</span>
-            <span>+7 747-692-37-59</span>
+            <span class="phone-number" onclick="copyPhoneNumber(this)"
+              >+7 747-223-07-57</span
+            >
+            <span class="phone-number" onclick="copyPhoneNumber(this)"
+              >+7 747-692-37-59</span
+            >
           </div>
           <div class="hero-content">
             <h1>Промышленное оборудование</h1>
@@ -50,7 +72,9 @@
             </p>
           </div>
           <div class="order-button">
-            <button>Сделать заказ</button>
+            <a href="">
+              <button>Сделать заказ</button>
+            </a>
           </div>
         </div>
         <div class="model-3d-container">
@@ -81,7 +105,7 @@
         <h2>Категории товаров</h2>
 
         <div class="equipment-grid">
-          <a href="">
+          <a href="ссылка-на-страницу-1" class="equipment-link">
             <div class="equipment-card">
               <img
                 src="./assets/images/category-1.png"
@@ -98,133 +122,151 @@
             </div>
           </a>
 
-          <!-- Добавьте больше карточек аналогичным образом -->
-          <div class="equipment-card">
-            <img
-              src="./assets/images/category-2.png"
-              alt="Электродвигатели"
-              class="equipment-image"
-            />
-            <h3 class="equipment-title">Электродвигатели</h3>
-            <div class="equipment-details">
-              <p>МО-15 / АИОВ8 / МГД-1</p>
-              <div class="catalog-array-contain">
-                <img src="./assets/icons/right-array.png" alt="Arrow" />
+          <a href="ссылка-на-страницу-2" class="equipment-link">
+            <div class="equipment-card">
+              <img
+                src="./assets/images/category-2.png"
+                alt="Электродвигатели"
+                class="equipment-image"
+              />
+              <h3 class="equipment-title">Электродвигатели</h3>
+              <div class="equipment-details">
+                <p>МО-15 / АИОВ8 / МГД-1</p>
+                <div class="catalog-array-contain">
+                  <img src="./assets/icons/right-array.png" alt="Arrow" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="equipment-card">
-            <img
-              src="./assets/images/category-3.png"
-              alt="Электродвигатели"
-              class="equipment-image"
-            />
-            <h3 class="equipment-title">Электродвигатели</h3>
-            <div class="equipment-details">
-              <p>МО-15 / АИОВ8 / МГД-1</p>
-              <div class="catalog-array-contain">
-                <img src="./assets/icons/right-array.png" alt="Arrow" />
+          </a>
+
+          <a href="ссылка-на-страницу-3" class="equipment-link">
+            <div class="equipment-card">
+              <img
+                src="./assets/images/category-3.png"
+                alt="Электродвигатели"
+                class="equipment-image"
+              />
+              <h3 class="equipment-title">Электродвигатели</h3>
+              <div class="equipment-details">
+                <p>МО-15 / АИОВ8 / МГД-1</p>
+                <div class="catalog-array-contain">
+                  <img src="./assets/icons/right-array.png" alt="Arrow" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="equipment-card">
-            <img
-              src="./assets/images/category-4.png"
-              alt="Электродвигатели"
-              class="equipment-image"
-            />
-            <h3 class="equipment-title">Электродвигатели</h3>
-            <div class="equipment-details">
-              <p>МО-15 / АИОВ8 / МГД-1</p>
-              <div class="catalog-array-contain">
-                <img src="./assets/icons/right-array.png" alt="Arrow" />
+          </a>
+          <a href="ссылка-на-страницу-3" class="equipment-link">
+            <div class="equipment-card">
+              <img
+                src="./assets/images/category-4.png"
+                alt="Электродвигатели"
+                class="equipment-image"
+              />
+              <h3 class="equipment-title">Электродвигатели</h3>
+              <div class="equipment-details">
+                <p>МО-15 / АИОВ8 / МГД-1</p>
+                <div class="catalog-array-contain">
+                  <img src="./assets/icons/right-array.png" alt="Arrow" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="equipment-card">
-            <img
-              src="./assets/images/category-5.png"
-              alt="Электродвигатели"
-              class="equipment-image"
-            />
-            <h3 class="equipment-title">Электродвигатели</h3>
-            <div class="equipment-details">
-              <p>МО-15 / АИОВ8 / МГД-1</p>
-              <div class="catalog-array-contain">
-                <img src="./assets/icons/right-array.png" alt="Arrow" />
+          </a>
+          <a href="ссылка-на-страницу-3" class="equipment-link">
+            <div class="equipment-card">
+              <img
+                src="./assets/images/category-5.png"
+                alt="Электродвигатели"
+                class="equipment-image"
+              />
+              <h3 class="equipment-title">Электродвигатели</h3>
+              <div class="equipment-details">
+                <p>МО-15 / АИОВ8 / МГД-1</p>
+                <div class="catalog-array-contain">
+                  <img src="./assets/icons/right-array.png" alt="Arrow" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="equipment-card">
-            <img
-              src="./assets/images/category-6.png"
-              alt="Электродвигатели"
-              class="equipment-image"
-            />
-            <h3 class="equipment-title">Электродвигатели</h3>
-            <div class="equipment-details">
-              <p>МО-15 / АИОВ8 / МГД-1</p>
-              <div class="catalog-array-contain">
-                <img src="./assets/icons/right-array.png" alt="Arrow" />
+          </a>
+          <a href="ссылка-на-страницу-6" class="equipment-link">
+            <div class="equipment-card">
+              <img
+                src="./assets/images/category-6.png"
+                alt="Электродвигатели"
+                class="equipment-image"
+              />
+              <h3 class="equipment-title">Электродвигатели</h3>
+              <div class="equipment-details">
+                <p>МО-15 / АИОВ8 / МГД-1</p>
+                <div class="catalog-array-contain">
+                  <img src="./assets/icons/right-array.png" alt="Arrow" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="equipment-card">
-            <img
-              src="./assets/images/category-7.png"
-              alt="Электродвигатели"
-              class="equipment-image"
-            />
-            <h3 class="equipment-title">Электродвигатели</h3>
-            <div class="equipment-details">
-              <p>МО-15 / АИОВ8 / МГД-1</p>
-              <div class="catalog-array-contain">
-                <img src="./assets/icons/right-array.png" alt="Arrow" />
+          </a>
+          <a href="ссылка-на-страницу-3" class="equipment-link">
+            <div class="equipment-card">
+              <img
+                src="./assets/images/category-7.png"
+                alt="Электродвигатели"
+                class="equipment-image"
+              />
+              <h3 class="equipment-title">Электродвигатели</h3>
+              <div class="equipment-details">
+                <p>МО-15 / АИОВ8 / МГД-1</p>
+                <div class="catalog-array-contain">
+                  <img src="./assets/icons/right-array.png" alt="Arrow" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="equipment-card">
-            <img
-              src="./assets/images/category-8.png"
-              alt="Электродвигатели"
-              class="equipment-image"
-            />
-            <h3 class="equipment-title">Электродвигатели</h3>
-            <div class="equipment-details">
-              <p>МО-15 / АИОВ8 / МГД-1</p>
-              <div class="catalog-array-contain">
-                <img src="./assets/icons/right-array.png" alt="Arrow" />
+          </a>
+          <a href="ссылка-на-страницу-8" class="equipment-link">
+            <div class="equipment-card">
+              <img
+                src="./assets/images/category-8.png"
+                alt="Электродвигатели"
+                class="equipment-image"
+              />
+              <h3 class="equipment-title">Электродвигатели</h3>
+              <div class="equipment-details">
+                <p>МО-15 / АИОВ8 / МГД-1</p>
+                <div class="catalog-array-contain">
+                  <img src="./assets/icons/right-array.png" alt="Arrow" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="equipment-card">
-            <img
-              src="./assets/images/category-9.png"
-              alt="Электродвигатели"
-              class="equipment-image"
-            />
-            <h3 class="equipment-title">Электродвигатели</h3>
-            <div class="equipment-details">
-              <p>МО-15 / АИОВ8 / МГД-1</p>
-              <div class="catalog-array-contain">
-                <img src="./assets/icons/right-array.png" alt="Arrow" />
+          </a>
+          <a href="ссылка-на-страницу-3" class="equipment-link">
+            <div class="equipment-card">
+              <img
+                src="./assets/images/category-9.png"
+                alt="Электродвигатели"
+                class="equipment-image"
+              />
+              <h3 class="equipment-title">Электродвигатели</h3>
+              <div class="equipment-details">
+                <p>МО-15 / АИОВ8 / МГД-1</p>
+                <div class="catalog-array-contain">
+                  <img src="./assets/icons/right-array.png" alt="Arrow" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="equipment-card">
-            <img
-              src="./assets/images/category-10.png"
-              alt="Электродвигатели"
-              class="equipment-image"
-            />
-            <h3 class="equipment-title">Электродвигатели</h3>
-            <div class="equipment-details">
-              <p>МО-15 / АИОВ8 / МГД-1</p>
-              <div class="catalog-array-contain">
-                <img src="./assets/icons/right-array.png" alt="Arrow" />
+          </a>
+          <a href="ссылка-на-страницу-3" class="equipment-link">
+            <div class="equipment-card">
+              <img
+                src="./assets/images/category-10.png"
+                alt="Электродвигатели"
+                class="equipment-image"
+              />
+              <h3 class="equipment-title">Электродвигатели</h3>
+              <div class="equipment-details">
+                <p>МО-15 / АИОВ8 / МГД-1</p>
+                <div class="catalog-array-contain">
+                  <img src="./assets/icons/right-array.png" alt="Arrow" />
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -306,7 +348,6 @@
         </div>
       </section>
     </main>
-
     <footer class="site-footer">
       <div class="logo-footer">
         <p><span>A</span>RT <span>S</span>TILL <span>C</span>OMPANY</p>
@@ -323,6 +364,7 @@
         /></a>
       </div>
     </footer>
+
     <script src="./js/index.js"></script>
   </body>
 </html>
