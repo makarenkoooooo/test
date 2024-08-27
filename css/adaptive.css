@@ -28,13 +28,13 @@ body {
 h2 {
   font-family: var(--font-family);
   font-weight: 600;
-  font-size: 77px;
+  font-size: 60px;
   text-align: center;
   color: #fff;
   border: 1px solid #ed5a00;
   border-radius: 20px;
   padding: 20px 18px;
-  width: 811px;
+  width: max-content;
   margin: 0 auto;
   margin-bottom: 70px;
 }
@@ -76,7 +76,7 @@ h2 {
 .nav-link {
   font-family: var(--font-family);
   font-weight: 200;
-  font-size: 40px;
+  font-size: 30px;
   color: #fff;
 }
 
@@ -152,14 +152,14 @@ h2 {
 .hero-content h1 {
   font-family: var(--font-family);
   font-weight: 200;
-  font-size: 80px;
+  font-size: 70px;
   color: #ed5a00;
 }
 
 .hero-content p {
   font-family: var(--font-family);
   font-weight: 200;
-  font-size: 60px;
+  font-size: 40px;
   color: #fff;
 }
 
@@ -264,7 +264,7 @@ h2 {
 .stat-number {
   font-family: var(--font-family);
   font-weight: 200;
-  font-size: 90px;
+  font-size: 70px;
   text-align: center;
   color: #fff;
 }
@@ -272,7 +272,7 @@ h2 {
 .stat-item p {
   font-family: var(--font-family);
   font-weight: 200;
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
   color: #fff;
 }
@@ -364,9 +364,8 @@ h2 {
   margin-top: auto;
   font-family: var(--second-family);
   font-weight: 400;
-  font-size: 25px;
+  font-size: 30px;
   letter-spacing: 0.16em;
-  text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #fff;
 }
@@ -467,7 +466,7 @@ h2 {
   transition: transform 0.3s ease;
   background-size: cover;
   background-position: center;
-  height: 270px;
+  height: 370px;
 }
 
 @media (max-width: 500px) {
@@ -516,7 +515,7 @@ h2 {
     sans-serif
   ); /* Use fallback font if custom one is not available */
   font-weight: 300;
-  font-size: 24px;
+  font-size: 30px;
   text-align: center;
   color: #fff;
   margin: 10px 0 0;
@@ -549,6 +548,7 @@ h2 {
 .advantages {
   padding: 3.12vw 1.82vw;
   background: rgb(51, 51, 51);
+  font-size: 30px;
 }
 
 .grid-container {
@@ -1124,7 +1124,7 @@ h2 {
   font-size: 20px;
   letter-spacing: -0.03em;
   color: #fff;
-  background: #292828;
+  background-color: rgba(41, 40, 40, 0.4);
   padding: 15px;
   border-radius: 15px;
 }
@@ -1147,7 +1147,7 @@ h2 {
 }
 
 .license-card {
-  background-color: #292828;
+  background-color: rgba(41, 40, 40, 0.4);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
