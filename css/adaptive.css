@@ -15,7 +15,7 @@
 body {
   font-family: var(--font-family);
   color: var(--font-color);
-  background-color: #222;
+  background-color: rgba(34, 33, 34, 255);
   padding: 0;
   margin: 0 auto;
   font-size: 1rem;
@@ -177,6 +177,21 @@ h2 {
 
 .order-button button:hover {
   background-color: #e05a00; /* Цвет кнопки при наведении */
+}
+
+.looping-animation {
+  background-image: url("path/to/your-animation.gif");
+  background-size: cover;
+  animation: gif-loop 0s linear infinite;
+}
+
+@keyframes gif-loop {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 100%;
+  }
 }
 
 /* Медиа-запросы для мобильных устройств */
@@ -496,7 +511,7 @@ h2 {
     sans-serif
   ); /* Use fallback font if custom one is not available */
   font-weight: 300;
-  font-size: 18px;
+  font-size: 24px;
   text-align: center;
   color: #fff;
   margin: 10px 0 0;
@@ -628,15 +643,39 @@ h2 {
 
 .partners {
   background: #333;
-  padding-bottom: 100px;
+  padding: 50px 0;
   border-bottom-right-radius: 120px;
   border-bottom-left-radius: 120px;
+  overflow: hidden; /* Скрываем содержимое, выходящее за пределы */
 }
+
 .partner-logos {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  overflow: hidden; /* Скрываем содержимое, выходящее за пределы */
 }
+
+.logos-wrap {
+  display: flex;
+  animation: scroll 20s linear infinite; /* Анимация на бесконечный цикл */
+  width: max-content; /* Ширина по содержимому для бесшовной прокрутки */
+}
+
+.logos-wrap div {
+  flex-shrink: 0; /* Предотвращаем сжатие логотипов */
+  padding: 0 20px; /* Отступы между логотипами */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      -50%
+    ); /* Двигаем на половину ширины для бесшовного эффекта */
+  }
+}
+
 /* Footer */
 .site-footer {
   display: flex;
@@ -986,7 +1025,7 @@ h2 {
   padding: 20px;
   padding-bottom: 40px;
   border-radius: 25px;
-  background: #292828;
+  background-color: rgba(41, 40, 40, 0.4);
   fill: rgba(41, 40, 40, 0.4);
 }
 
@@ -1165,26 +1204,32 @@ h2 {
 }
 
 .custom-dropdown {
-  max-width: 500px;
+  width: 500px; /* Ширина всей конструкции */
   margin: 0 auto;
-  text-align: center;
   color: #ed5a00;
   font-family: "Arial", sans-serif;
   font-size: 20px;
   position: relative;
-  border-radius: 10px;
   cursor: pointer;
-  padding: 10px;
   z-index: 10;
+  background-color: #333; /* Фон для всей конструкции */
+  border-radius: 10px;
 }
 
 .dropdown-selected {
-  background-color: #333;
-  border-radius: 5px;
-  padding: 10px;
+  padding: 15px;
+  background-color: #333; /* Тот же цвет, что и у выпадающего списка */
+  border-radius: 10px;
   display: flex;
+  justify-content: center; /* Центрируем контент внутри */
   align-items: center;
-  justify-content: center;
+  transition: border-radius 0.3s ease; /* Плавный переход для изменения радиусов */
+  position: relative; /* Относительное позиционирование для абсолютного позиционирования стрелки */
+}
+
+.dropdown-selected-text {
+  flex-grow: 1; /* Расширяем текстовый блок, чтобы он занимал все доступное пространство */
+  text-align: center; /* Центрируем текст */
 }
 
 .dropdown-selected::after {
@@ -1192,25 +1237,23 @@ h2 {
   font-size: 12px;
   color: #ed5a00;
   position: absolute;
-  right: 50px;
+  right: 15px; /* Смещаем стрелку вправо */
 }
 
 .dropdown-items {
   display: none;
-  background-color: #333;
-  border-radius: 10px;
-  padding: 10px 0;
+  background-color: #333; /* Цвет фона для выпадающего списка */
   position: absolute;
   top: 100%;
-  left: 30px;
-  width: 90%;
-  z-index: 1000;
+  left: 0;
+  width: 100%; /* Соответствует ширине родительского блока */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
+  border-radius: 0 0 10px 10px; /* Сглаживание углов только внизу */
+  overflow: hidden; /* Скрытие элементов, выходящих за пределы */
 }
 
 .dropdown-items li {
-  padding: 10px 20px;
+  padding: 15px;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -1221,7 +1264,12 @@ h2 {
 }
 
 .custom-dropdown.active .dropdown-items {
-  display: block;
+  display: block; /* Показывает выпадающий список при активации */
+}
+
+.custom-dropdown.active .dropdown-selected {
+  border-bottom-right-radius: 0; /* Убираем радиус правого нижнего угла */
+  border-bottom-left-radius: 0; /* Убираем радиус левого нижнего угла */
 }
 
 .custom-dropdown.active .dropdown-selected::after {
@@ -1234,11 +1282,13 @@ h2 {
   color: #fff;
   border-radius: 5px;
   display: none; /* Все скрыты по умолчанию */
-  height: auto; /* Высота автоматически адаптируется под контент */
+  height: auto; /* Убедитесь, что высота автоматически адаптируется */
+  overflow: visible; /* Содержимое не будет скрываться */
 }
 
 .category-content.active {
   display: block; /* Только активный блок виден */
+  height: auto;
 }
 
 .category-content h2 {
@@ -1275,4 +1325,9 @@ h2 {
 .category-content .categories {
   border-bottom-left-radius: 120px;
   border-bottom-right-radius: 120px;
+}
+
+.category-content .categories .equipment-card:hover .equipment-image {
+  filter: sepia(1) saturate(4) hue-rotate(-15deg) brightness(1.2); /* Изменение цвета на оттенок, близкий к rgba(207, 81, 4, 1) */
+  transform: scale(1.1); /* Немного увеличить изображение при наведении */
 }

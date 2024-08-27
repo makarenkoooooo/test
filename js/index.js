@@ -160,6 +160,8 @@ document.querySelectorAll(".dropdown-items li").forEach(function (item) {
     };
 
     showCategoryContent(categoryMap[selectedCategory]);
+
+    swiper.updateAutoHeight();
   });
 });
 
