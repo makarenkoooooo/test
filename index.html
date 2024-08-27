@@ -396,11 +396,12 @@
 
         <div class="swiper-slide">
           <div class="category-head">
-            <h3>Каталог</h3>
+            <!-- <h3>Каталог</h3> -->
             <div class="category-head-wrap">
               <div class="custom-dropdown">
                 <div class="dropdown-selected">Электродвигатели</div>
                 <ul class="dropdown-items">
+                  <li>Все категории</li>
                   <li>Электродвигатели</li>
                   <li>Частотные преобразователи</li>
                   <li>Фильтровальное оборудование</li>
@@ -1314,23 +1315,27 @@
                   <img
                     src="./assets/images/sert.png"
                     alt="Лицензия на реализацию"
+                    class="license-image"
                   />
                   <p class="license-description">Лицензия на реализацию</p>
                 </div>
                 <div class="license-card">
                   <img
                     src="./assets/images/sert.png"
-                    alt="Лицензия на лицензию"
-                  />
-                  <p class="license-description">Лицензия на лицензию</p>
-                </div>
-                <div class="license-card">
-                  <img
-                    src="./assets/images/sert.png"
                     alt="Лицензия что мы крутые"
+                    class="license-image"
                   />
                   <p class="license-description">Лицензия что мы крутые</p>
                 </div>
+              </div>
+
+              <!-- Модальное окно для отображения сертификатов -->
+              <div id="modal" class="modal">
+                <img
+                  id="modal-image"
+                  class="modal-image"
+                  alt="Просмотр сертификата"
+                />
               </div>
             </section>
           </div>
@@ -1451,6 +1456,24 @@
       swiper.on("slideChange", function () {
         window.scrollTo(0, 0); // Прокручиваем страницу к началу
         updateNavigation(); // Обновляем навигацию
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const licenseImages = document.querySelectorAll(".license-image");
+        const modal = document.getElementById("modal");
+        const modalImage = document.getElementById("modal-image");
+
+        licenseImages.forEach(function (image) {
+          image.addEventListener("click", function () {
+            modal.style.display = "flex"; // Показываем модальное окно
+            modalImage.src = this.src; // Устанавливаем путь к изображению
+          });
+        });
+
+        // Закрытие модального окна при клике на него
+        modal.addEventListener("click", function () {
+          modal.style.display = "none"; // Скрываем модальное окно
+        });
       });
     </script>
   </body>
