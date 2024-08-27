@@ -90,6 +90,14 @@ function copyPhoneNumber(element) {
 
 // select
 
+// Обработчики событий для меню
+document.querySelectorAll(".nav-link").forEach((link, index) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault(); // Предотвращаем стандартное поведение ссылок
+    swiper.slideTo(index); // Переключаемся на соответствующий слайд
+  });
+});
+
 document
   .querySelector(".dropdown-selected")
   .addEventListener("click", function () {
@@ -163,6 +171,25 @@ document.querySelectorAll(".dropdown-items li").forEach(function (item) {
 
     swiper.updateAutoHeight();
   });
+});
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach((link, index) => {
+  link.addEventListener("click", () => {
+    swiper.slideTo(index); // Переключаемся на соответствующий слайд
+
+    // Удаляем класс активного состояния у всех ссылок
+    navLinks.forEach((link) => link.classList.remove("active"));
+
+    // Добавляем класс активного состояния к текущей ссылке
+    link.classList.add("active");
+  });
+});
+
+swiper.on("slideChange", () => {
+  navLinks.forEach((link) => link.classList.remove("active"));
+  navLinks[swiper.activeIndex].classList.add("active");
 });
 
 // Закрытие списка при клике вне его

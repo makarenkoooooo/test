@@ -21,9 +21,9 @@
         </a>
         <nav class="main-nav" aria-label="Основная навигация">
           <ul class="nav-list">
-            <li><a href="#" class="nav-link">Главная</a></li>
-            <li><a href="#" class="nav-link">Каталог</a></li>
-            <li><a href="#" class="nav-link">Контакты</a></li>
+            <li><a href="#" class="nav-link" data-slide="0">Главная</a></li>
+            <li><a href="#" class="nav-link" data-slide="1">Каталог</a></li>
+            <li><a href="#" class="nav-link" data-slide="2">Контакты</a></li>
           </ul>
         </nav>
         <div class="cta-button">
@@ -1363,7 +1363,6 @@
         autoHeight: true, // Автоматическая высота слайдов
         slidesPerView: 1,
         spaceBetween: 0,
-
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -1376,14 +1375,81 @@
           enabled: false, // Отключаем управление слайдером с клавиатуры
         },
         mousewheel: false, // Отключаем прокрутку слайдов колесиком мыши
+        on: {
+          slideChange: updateNavigation, // Обновляем навигацию при смене слайда
+        },
       });
 
-      // Обработчики событий для меню
-      document.querySelectorAll(".nav-link").forEach((link, index) => {
-        link.addEventListener("click", (event) => {
-          event.preventDefault(); // Предотвращаем стандартное поведение ссылок
-          swiper.slideTo(index); // Переключаемся на соответствующий слайд
+      // Настройка кликов по категориям
+      document.querySelectorAll(".equipment-card").forEach((card) => {
+        card.addEventListener("click", function (event) {
+          event.preventDefault();
+          const categoryTitle =
+            this.querySelector(".equipment-title").innerText;
+
+          // Словарь для соответствия названий категорий ID блоков контента
+          const categoryMap = {
+            Электродвигатели: "content-electrodvigateli",
+            "Частотные преобразователи": "content-chastotnye-preobrazovateli",
+            "Фильтровальное оборудование": "content-filtr-oborudovanie",
+            "Насосные оборудования": "content-nasosnye-oborudovaniya",
+            "Силовая автоматика": "content-silovaya-avtomatika",
+            "Конвейерное оборудование": "content-konveyernoe-oborudovanie",
+            Газоочистка: "content-gazoochistka",
+            Гидроцилиндры: "content-gidrotsilindry",
+            Флотация: "content-flotaciya",
+            Металлопрокат: "content-metalloprokat",
+          };
+
+          const selectedContentId = categoryMap[categoryTitle];
+
+          // Переход на слайд с каталогом
+          swiper.slideTo(1); // Предполагается, что второй слайд - это каталог
+
+          // Устанавливаем выбранный элемент в dropdown
+          document.querySelector(".dropdown-selected").innerText =
+            categoryTitle;
+
+          // Отображаем нужный контент
+          showCategoryContent(selectedContentId);
+
+          // Обновляем высоту слайда
+          swiper.updateAutoHeight();
         });
+      });
+
+      // Функция для обновления навигации
+      function updateNavigation() {
+        const activeIndex = swiper.activeIndex;
+        const navItems = document.querySelectorAll(".main-nav a");
+
+        navItems.forEach((item, index) => {
+          if (index === activeIndex) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+      }
+
+      // Инициализируем навигацию при загрузке страницы
+      updateNavigation();
+
+      // Функция для показа нужного блока контента
+      function showCategoryContent(categoryId) {
+        document.querySelectorAll(".category-content").forEach((content) => {
+          content.classList.remove("active");
+        });
+
+        const selectedContent = document.getElementById(categoryId);
+        if (selectedContent) {
+          selectedContent.classList.add("active");
+        }
+      }
+
+      swiper.on("slideChange", function () {
+        window.scrollTo(0, 0); // Прокручиваем страницу к началу
+        updateNavigation(); // Обновляем навигацию
       });
     </script>
   </body>

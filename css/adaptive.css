@@ -84,6 +84,11 @@ h2 {
   color: var(--primary-color);
 }
 
+.nav-link.active,
+.nav-link:hover {
+  color: var(--primary-color); /* Используйте ваш цвет, например, #ed5a00 */
+}
+
 .cta-button a {
   border-radius: 1rem;
   padding: 0.5vw 1.9vw;
