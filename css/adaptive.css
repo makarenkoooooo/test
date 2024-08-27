@@ -358,8 +358,9 @@ h2 {
 }
 
 .equipment-image {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  min-height: max-content;
   order: 2; /* Изображение под заголовком */
   transition: transform 0.7s ease; /* Добавление анимации к изображению */
 }
@@ -387,12 +388,10 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #333;
   padding: 20px;
   position: relative;
   top: 20px;
-  left: 10px;
-  border-radius: 10px;
+  left: 20px;
   min-width: 50px;
 }
 
@@ -421,7 +420,7 @@ h2 {
     padding: 0px;
     text-align: left;
     height: 110px;
-    /* background: #212121; */
+    background: rgba(41, 40, 40, 0.6);
   }
 
   .equipment-title {
@@ -432,7 +431,7 @@ h2 {
   }
 
   .equipment-image {
-    width: 50px; /* Уменьшение размера изображения на мобилке */
+    width: 69px; /* Уменьшение размера изображения на мобилке */
     height: auto;
     order: 1; /* Изображение слева */
     transition: transform 0.3s ease; /* Анимация для мобильных устройств */
@@ -488,7 +487,6 @@ h2 {
     overflow-x: auto;
     max-width: 100%;
     gap: 10px;
-    padding: 20px 0;
   }
 
   .industry-card {
@@ -496,7 +494,6 @@ h2 {
     scroll-snap-align: center;
     min-width: 80%;
     height: auto;
-    margin: 0 10px;
     transition: transform 0.3s ease-in-out;
   }
 
@@ -527,8 +524,8 @@ h2 {
     Arial,
     sans-serif
   ); /* Use fallback font if custom one is not available */
-  font-weight: 300;
-  font-size: 30px;
+  font-weight: 200;
+  font-size: 20px;
   text-align: center;
   color: #fff;
   margin: 10px 0 0;
@@ -579,7 +576,7 @@ h2 {
   /* padding: 20px; */
   background-color: #333;
   border-radius: 12px;
-  max-width: 90%;
+  width: 90%;
   height: 370px;
 }
 
@@ -626,11 +623,13 @@ h2 {
       "item3 item4"; /* Новое расположение элементов */
     gap: 10px;
     height: auto; /* Автоматическая высота */
+    width: 100%;
   }
 
   .grid-item {
     font-size: 18px; /* Уменьшение размера шрифта для мобильных */
     padding: 10px; /* Уменьшение отступов */
+    background-size: cover;
   }
 }
 
@@ -1265,6 +1264,12 @@ h2 {
   padding-top: 50px;
 }
 
+@media (max-width: 500px) {
+  .category-head-wrap {
+    padding-top: 20px;
+  }
+}
+
 .custom-dropdown {
   width: 500px; /* Ширина всей конструкции */
   margin: 0 auto;
@@ -1276,6 +1281,13 @@ h2 {
   z-index: 10;
   background-color: #333; /* Фон для всей конструкции */
   border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+  .custom-dropdown {
+    width: 300px;
+    font-size: 14px;
+  }
 }
 
 .dropdown-selected {
@@ -1365,6 +1377,12 @@ h2 {
   width: auto;
 }
 
+@media (max-width: 500px) {
+  .category-content h2 {
+    font-size: 40px;
+  }
+}
+
 .category-content .equipment-details {
   justify-content: flex-end;
 }
@@ -1375,6 +1393,12 @@ h2 {
   font-size: 40px;
   letter-spacing: -0.03em;
   text-align: center;
+}
+
+@media (max-width: 500px) {
+  .category-content .equipment-title {
+    font-size: 1em;
+  }
 }
 
 .category-content .equipment-card:hover .equipment-title {
@@ -1389,6 +1413,15 @@ h2 {
 .category-content .categories {
   border-bottom-left-radius: 120px;
   border-bottom-right-radius: 120px;
+}
+
+@media (max-width: 500px) {
+  .category-content {
+    padding: 10px;
+  }
+  .category-content .categories {
+    border-radius: 20px;
+  }
 }
 
 .category-content .categories .equipment-card:hover .equipment-image {
