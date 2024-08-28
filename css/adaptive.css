@@ -1542,24 +1542,14 @@ h2 {
   }
 }
 
-@media (max-width: 500px) {
-  .equipment-link,
-  .equipment-link-link-product,
-  .dropdown-items li {
-    pointer-events: none; /* Отключает кликабельность */
-    cursor: default; /* Смена курсора на стандартный */
-  }
-
-  .custom-dropdown.active .dropdown-items,
-  .custom-dropdown.active .dropdown-selected {
-    transition: none !important; /* Убирает анимации перехода */
-  }
-}
-
 .b24-form-wrapper.b24-form-border-bottom {
   border-radius: 20px;
 }
 
 .b24-window-widget.b24-window-widget-p-bottom-right {
   border-radius: 20px;
+}
+
+.bx-button-placeholder {
+  display: none !important; /* Скрывает стандартную кнопку */
 }

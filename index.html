@@ -1802,32 +1802,5 @@
 
     <script src="./js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script>
-      (function (w, d, u) {
-        var s = d.createElement("script");
-        s.async = true;
-        s.src = u + "?" + ((Date.now() / 60000) | 0);
-        var h = d.getElementsByTagName("script")[0];
-        h.parentNode.insertBefore(s, h);
-      })(
-        window,
-        document,
-        "https://cdn-ru.bitrix24.kz/b28620676/crm/site_button/loader_1_kmg8yh.js"
-      );
-
-      // Проверяем, когда скрипт будет загружен
-      document.addEventListener("DOMContentLoaded", function () {
-        var customButton = document.getElementById("customBitrixButton");
-
-        // Проверяем, если объект BX загружен и доступен
-        customButton.addEventListener("click", function () {
-          if (typeof BX !== "undefined" && BX.SiteButton) {
-            BX.SiteButton.windowShow(); // Открываем форму
-          } else {
-            console.error("Скрипт Bitrix еще не загружен");
-          }
-        });
-      });
-    </script>
   </body>
 </html>
