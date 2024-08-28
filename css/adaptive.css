@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+@media (max-width: 500px) {
+  * {
+    transform: none;
+  }
+}
+
 :root {
   --font-family: "Deledda", sans-serif;
   --font-color: #fff;
@@ -344,6 +350,9 @@ h2 {
 }
 
 @media (max-width: 500px) {
+  .category-content .equipment-grid {
+    grid-template-columns: 1fr;
+  }
   .category-content .categories .equipment-card {
     padding-bottom: 0;
     height: auto;
@@ -410,10 +419,10 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 0;
   position: relative;
-  top: 20px;
-  left: 20px;
+  top: 0;
+  left: 0;
   min-width: 50px;
 }
 
@@ -423,7 +432,7 @@ h2 {
 }
 
 .category-content .categories .catalog-array-contain img {
-  width: 50px;
+  width: 40px;
   height: 50px;
 }
 
@@ -1101,7 +1110,7 @@ h2 {
 }
 
 .map-block {
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   padding: 20px;
   padding-bottom: 40px;
@@ -1123,7 +1132,7 @@ h2 {
 }
 
 .map {
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -1152,6 +1161,10 @@ h2 {
     padding: 0 10px;
   }
 
+  .map-block {
+    width: 100%;
+  }
+
   .map-section {
     border-radius: 60px 60px 0 0;
     padding-top: 20px;
@@ -1173,6 +1186,7 @@ h2 {
   letter-spacing: -0.03em;
   text-align: center;
   color: #fff;
+  margin-bottom: 20px;
 }
 
 .certificates-list {
@@ -1222,7 +1236,9 @@ h2 {
 
 .licenses-gallery {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -1278,7 +1294,7 @@ h2 {
 @media (max-width: 768px) {
   .certificates-list {
     gap: 15px;
-    grid-template-columns: 2fr auto;
+    grid-template-columns: 1fr;
   }
 
   .certificates-title {
@@ -1479,10 +1495,71 @@ h2 {
 }
 
 @media (max-width: 500px) {
+  /* Отключение трансформаций, фильтров и анимаций при наведении */
+  .equipment-card:hover,
+  .industry-card:hover,
+  .order-button button:hover,
+  .nav-link:hover,
+  .dropdown-items li:hover,
+  .equipment-card:hover .equipment-image,
+  .equipment-card:hover .equipment-title,
   .category-content .categories .equipment-card:hover .equipment-image {
-    transform: none;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    color: inherit !important;
+    background-color: inherit !important;
   }
-  .category-content .equipment-card:hover .equipment-title {
-    transform: none;
+
+  /* Удаление цветовых изменений */
+  .nav-link:hover {
+    color: inherit !important;
   }
+
+  .order-button button:hover {
+    background-color: rgba(237, 90, 0, 0.7) !important;
+  }
+
+  .dropdown-items li:hover {
+    background-color: #333 !important; /* Заменить на базовый фон */
+  }
+
+  .industry-card:hover {
+    transform: none !important;
+  }
+
+  .equipment-card:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .equipment-image:hover {
+    transform: none !important;
+  }
+
+  .equipment-title:hover {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .equipment-link,
+  .equipment-link-link-product,
+  .dropdown-items li {
+    pointer-events: none; /* Отключает кликабельность */
+    cursor: default; /* Смена курсора на стандартный */
+  }
+
+  .custom-dropdown.active .dropdown-items,
+  .custom-dropdown.active .dropdown-selected {
+    transition: none !important; /* Убирает анимации перехода */
+  }
+}
+
+.b24-form-wrapper.b24-form-border-bottom {
+  border-radius: 20px;
+}
+
+.b24-window-widget.b24-window-widget-p-bottom-right {
+  border-radius: 20px;
 }
