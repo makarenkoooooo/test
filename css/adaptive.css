@@ -1462,7 +1462,7 @@ h2 {
 
 @media (max-width: 500px) {
   .category-content .equipment-title {
-    font-size: 0.8em;
+    font-size: 1.3em;
   }
 }
 
@@ -1550,6 +1550,6 @@ h2 {
   border-radius: 20px;
 }
 
-.bx-button-placeholder {
-  display: none !important; /* Скрывает стандартную кнопку */
+.b24-widget-button-wrapper {
+  display: none !important;
 }
