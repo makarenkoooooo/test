@@ -343,6 +343,13 @@ h2 {
   height: 400px;
 }
 
+@media (max-width: 500px) {
+  .category-content .categories .equipment-card {
+    padding-bottom: 0;
+    height: auto;
+  }
+}
+
 .shape {
   background-image: url(../assets/images/shape-1.png);
   width: 100%; /* Растягивает блок на всю ширину родительского элемента */
@@ -377,6 +384,10 @@ h2 {
 @media (max-width: 500px) {
   .equipment-card:hover .equipment-image {
     transform: none; /* Увеличение изображения при наведении */
+  }
+
+  .equipment-card:hover .equipment-title {
+    transform: none;
   }
 }
 
@@ -1467,6 +1478,9 @@ h2 {
 
 @media (max-width: 500px) {
   .category-content .categories .equipment-card:hover .equipment-image {
+    transform: none;
+  }
+  .category-content .equipment-card:hover .equipment-title {
     transform: none;
   }
 }
