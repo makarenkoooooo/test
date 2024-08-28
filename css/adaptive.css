@@ -337,6 +337,10 @@ h2 {
   height: 100%;
 }
 
+.category-content .categories .equipment-card {
+  padding-bottom: 0;
+}
+
 .shape {
   background-image: url(../assets/images/shape-1.png);
   width: 100%; /* Растягивает блок на всю ширину родительского элемента */
@@ -384,7 +388,7 @@ h2 {
   /* margin-top: auto; */
   font-family: var(--second-family);
   font-weight: 200;
-  font-size: 30px;
+  font-size: 40px;
   text-decoration-skip-ink: none;
   color: #fff;
 }
@@ -1027,6 +1031,17 @@ h2 {
   padding: 20px;
 }
 
+.section-sert-map {
+  background: #333;
+  border-radius: 120px;
+}
+
+@media (max-width: 500px) {
+  .section-sert-map {
+    border-radius: 60px;
+  }
+}
+
 .logo-contact {
   text-align: center;
   font-family: var(--font-family);
@@ -1061,14 +1076,12 @@ h2 {
 }
 
 .map-section {
-  background: #333;
-  border-radius: 120px 120px 0 0;
   padding: 20px;
   padding-top: 60px;
 }
 
 .map-block {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   padding-bottom: 40px;
@@ -1090,7 +1103,7 @@ h2 {
 }
 
 .map {
-  max-width: 900px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -1129,11 +1142,8 @@ h2 {
 
 .certificates-section {
   padding: 40px 20px;
-  background: #333;
   color: #fff;
   text-align: center;
-  border-bottom-left-radius: 120px;
-  border-bottom-right-radius: 120px;
 }
 
 .certificates-subtitle {
@@ -1161,6 +1171,12 @@ h2 {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+@media (max-width: 500px) {
+  .certificate-item {
+    justify-content: center;
+  }
 }
 
 .certificate-name {
@@ -1241,10 +1257,8 @@ h2 {
 
 @media (max-width: 768px) {
   .certificates-list {
-    flex-direction: column;
-    align-items: center;
     gap: 15px;
-    grid-template-columns: repeat(auto, 1fr);
+    grid-template-columns: 2fr auto;
   }
 
   .certificates-title {
@@ -1257,8 +1271,6 @@ h2 {
 
   .certificates-section {
     padding-top: 20px;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
   }
 
   .certificates-subtitle {
