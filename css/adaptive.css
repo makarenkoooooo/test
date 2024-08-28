@@ -358,9 +358,8 @@ h2 {
 }
 
 .equipment-image {
-  width: 100%;
+  width: 60%;
   height: auto;
-  min-height: max-content;
   order: 2; /* Изображение под заголовком */
   transition: transform 0.7s ease; /* Добавление анимации к изображению */
 }
