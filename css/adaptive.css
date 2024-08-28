@@ -682,6 +682,7 @@ h2 {
 
 .logos-wrap {
   display: flex;
+  align-items: center;
   animation: scroll 20s linear infinite; /* Анимация на бесконечный цикл */
   width: max-content; /* Ширина по содержимому для бесшовной прокрутки */
 }
@@ -689,6 +690,16 @@ h2 {
 .logos-wrap div {
   flex-shrink: 0; /* Предотвращаем сжатие логотипов */
   padding: 0 20px; /* Отступы между логотипами */
+}
+
+.logos-wrap img {
+  max-width: 300px;
+}
+
+@media (max-width: 500px) {
+  .logos-wrap img {
+    max-width: 100px;
+  }
 }
 
 @keyframes scroll {
@@ -1403,7 +1414,7 @@ h2 {
 
 @media (max-width: 500px) {
   .category-content .equipment-title {
-    font-size: 1em;
+    font-size: 0.8em;
   }
 }
 
