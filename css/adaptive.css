@@ -755,28 +755,31 @@ h2 {
   border-bottom-left-radius: 120px;
 }
 
-.slider-container {
+.carousel-container {
   overflow: hidden; /* Прячем содержимое, выходящее за пределы контейнера */
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  cursor: grab; /* Указатель для взаимодействия слайдером */
 }
 
-.slider-track {
+.carousel-track {
   display: flex; /* Flexbox для горизонтального расположения элементов */
-  transition: transform 0.3s ease; /* Плавная анимация для прокрутки */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
   will-change: transform; /* Оптимизация производительности */
+  transition: transform 0.3s ease; /* Плавная анимация для прокрутки */
 }
 
-.slider-item {
+.carousel-item {
   flex: 0 0 auto; /* Элементы не сжимаются и не растягиваются */
-  width: 150px; /* Фиксированная ширина для каждого логотипа */
-  margin: 10px; /* Отступы вокруг логотипов */
+  width: 150px; /* Фиксированная ширина каждого элемента */
+  margin: 10px; /* Отступы между элементами */
 }
 
-.slider-item img {
-  width: 100%;
+.carousel-item img {
+  width: 500px;
   height: auto;
   display: block;
 }
