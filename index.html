@@ -11,21 +11,26 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css"
+    />
   </head>
 
   <body>
     <header class="site-header">
       <div class="container-header">
         <a href="#" class="logo" aria-label="Главная страница">
-          <img src="./assets/icons/logo.png" alt="ASC Logo" />
+          <img src="./assets/icons/logoo.svg" alt="ASC Logo" />
         </a>
         <nav class="main-nav" aria-label="Основная навигация">
           <ul class="nav-list">
             <li><a href="#" class="nav-link" data-slide="0">Главная</a></li>
             <li>
-              <a href="#category" class="katalog-btn">Каталог</a>
+              <a href="#category" class="nav-link" data-slide="1">Каталог</a>
             </li>
-            <li><a href="#" class="nav-link" data-slide="1">Контакты</a></li>
+
+            <li><a href="#" class="nav-link" data-slide="2">Контакты</a></li>
           </ul>
         </nav>
         <div class="cta-button">
@@ -327,7 +332,7 @@
                   Гарантия на всю продукцию
                 </div>
                 <div class="grid-item item3 advantage-item-3">
-                  Сервис Фильтровального оборудования
+                  Сервис фильтровального оборудования
                 </div>
                 <div class="grid-item item4 advantage-item-4">
                   Полный цикл работ от ТЗ до запуска
@@ -336,7 +341,7 @@
                   Использование современных САПР и уникальных технологий при
                   изготовлении и проектировании
                 </div>
-                <div class="grid-item item6 advantage-item-5">
+                <div class="grid-item item6 advantage-item-6">
                   Шеф-монтажные и Пуско-наладочные работы
                 </div>
               </div>
@@ -344,30 +349,35 @@
 
             <section class="partners">
               <h2>Партнеры компании</h2>
-              <div class="partner-logos">
-                <div class="logos-wrap">
-                  <div>
+              <div class="slider-container">
+                <div class="slider-track">
+                  <div class="slider-item">
                     <img
                       src="./assets/images/Severstal_Unity_Black_CMYK.svg"
                       alt="Партнер 1"
                     />
                   </div>
-                  <div>
+                  <div class="slider-item">
                     <img src="./assets/images/kazakhmys.svg" alt="Партнер 2" />
                   </div>
-                  <div>
+                  <div class="slider-item">
                     <img
                       src="./assets/images/ArcelorMittal.svg"
                       alt="Партнер 3"
                     />
                   </div>
-                  <div>
+                  <div class="slider-item">
                     <img src="./assets/images/zao.svg" alt="Партнер 4" />
                   </div>
-                  <div>
+                  <div class="slider-item">
                     <img src="./assets/images/cac.svg" alt="Партнер 5" />
                   </div>
-                  <!-- Копируем те же элементы для бесшовной прокрутки -->
+                  <div class="slider-item">
+                    <img src="./assets/icons/baiken.svg" alt="Партнер 6" />
+                  </div>
+                  <div class="slider-item">
+                    <img src="./assets/icons/kazatomprom.svg" alt="Партнер 7" />
+                  </div>
                 </div>
               </div>
             </section>
@@ -1666,20 +1676,37 @@
 
         <div class="swiper-slide">
           <div class="company">
-            <div class="logo-contact">
-              <!-- <p><span>A</span>RT <span>S</span>TILL <span>C</span>OMPANY</p> -->
+            <!-- <div class="logo-contact">
+              <p><span>A</span>RT <span>S</span>TILL <span>C</span>OMPANY</p>
               <img src="./assets/images/logo-2.svg" alt="logo footer" />
-            </div>
+            </div> -->
             <section class="about-company">
-              <h3>О компании</h3>
               <p>
                 Мы официальный представитель крупнейших заводов-изготовителей
                 промышленного оборудования в СНГ
               </p>
+              <div>
+                <img src="./assets/images/logo-contacts.png" alt="logo-3" />
+              </div>
             </section>
 
             <div class="section-sert-map">
               <section class="certificates-section">
+                <!-- <h2>Контактная информация</h2> -->
+                <div class="contacti">
+                  <div class="number-company">
+                    <p>Менеджер Александр</p>
+                    <p>+7 702-369-0712</p>
+                  </div>
+                  <div class="number-company">
+                    <p>Менеджер Олег</p>
+                    <p>+7 702-369-0712</p>
+                  </div>
+                  <div class="mail-company">
+                    <p>Почта компании</p>
+                    <p>artstillcompani@gmai.com</p>
+                  </div>
+                </div>
                 <h2>Лицензии и Сертификаты</h2>
                 <p class="certificates-subtitle">
                   Информация доступна для подробного ознакомления
@@ -1713,25 +1740,6 @@
                       <span class="certificate-lang">RUS</span>
                       <span class="certificate-lang">KAZ</span>
                     </div>
-                  </div>
-                </div>
-
-                <div class="licenses-gallery">
-                  <div class="license-card">
-                    <img
-                      src="./assets/images/sert.png"
-                      alt="Лицензия на реализацию"
-                      class="license-image"
-                    />
-                    <p class="license-description">Лицензия на реализацию</p>
-                  </div>
-                  <div class="license-card">
-                    <img
-                      src="./assets/images/sert.png"
-                      alt="Лицензия что мы крутые"
-                      class="license-image"
-                    />
-                    <p class="license-description">Лицензия что мы крутые</p>
                   </div>
                 </div>
 
