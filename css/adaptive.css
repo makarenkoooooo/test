@@ -1464,6 +1464,10 @@ h2 {
   .category-content .equipment-title {
     font-size: 1.3em;
   }
+
+  .category-content .equipment-card:hover .equipment-title {
+    font-size: 1.3em;
+  }
 }
 
 .category-content .equipment-card:hover .equipment-title {
@@ -1473,6 +1477,16 @@ h2 {
   letter-spacing: -0.03em;
   text-align: center;
   color: #fff;
+}
+
+@media (max-width: 500px) {
+  .category-content .equipment-title {
+    font-size: 1.3em;
+  }
+
+  .category-content .equipment-card:hover .equipment-title {
+    font-size: 1.3em;
+  }
 }
 
 .category-content .categories {
