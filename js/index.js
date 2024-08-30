@@ -202,4 +202,4 @@ document.querySelectorAll(".equipment-link.link-product").forEach((item) => {
   });
 });
 
-// слайдер партнеров
+// кнопка партнеров

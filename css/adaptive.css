@@ -434,6 +434,12 @@ h2 {
   min-width: 50px;
 }
 
+@media (max-width: 899px) {
+  .catalog-array-contain {
+    left: 8%;
+  }
+}
+
 .category-content .categories .catalog-array-contain {
   position: relative;
   top: 0;
@@ -1665,16 +1671,4 @@ h2 {
   .equipment-title:hover {
     transform: none !important;
   }
-}
-
-.b24-form-wrapper.b24-form-border-bottom {
-  border-radius: 20px;
-}
-
-.b24-window-widget.b24-window-widget-p-bottom-right {
-  border-radius: 20px;
-}
-
-.b24-widget-button-wrapper {
-  display: none !important;
 }
