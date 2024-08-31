@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper(".swiper-container", {
     direction: "horizontal",
     loop: false,
-    autoHeight: true, // Автоматическая высота слайдов
+    autoHeight: true,
     slidesPerView: 1,
     spaceBetween: 0,
-    allowTouchMove: false, // Отключаем возможность перелистывания свайпом
+    allowTouchMove: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -20,72 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  // Установка начального состояния при загрузке страницы
-  document.querySelector(".dropdown-selected").innerText = "Электродвигатели";
-  showCategoryContent("content-electrodvigateli"); // Показать контент для электродвигателей
-
-  // Навигация по главным ссылкам
-  document.querySelectorAll(".nav-link").forEach((link, index) => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-      swiper.slideTo(index); // Переключение на соответствующий слайд
-      updateNavigation(); // Обновляем состояние навигации
-    });
-  });
-
-  // Обработчики кликов по категориям
-  document.querySelectorAll(".equipment-link").forEach((link) => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-
-      // Получаем название категории
-      const categoryTitle = this.querySelector(".equipment-title").innerText;
-
-      // Словарь для соответствия названий категорий ID блоков контента
-      const categoryMap = {
-        Электродвигатели: "content-electrodvigateli",
-        "Частотные преобразователи": "content-chastotnye-preobrazovateli",
-        "Фильтровальное оборудование": "content-filtr-oborudovanie",
-        "Насосные оборудования": "content-nasosnye-oborudovaniya",
-        "Силовая автоматика": "content-silovaya-avtomatika",
-        "Конвейерное оборудование": "content-konveyernoe-oborudovanie",
-        Газоочистка: "content-gazoochistka",
-        Гидроцилиндры: "content-gidrotsilindry",
-        Флотация: "content-flotaciya",
-        Металлопрокат: "content-metalloprokat",
-      };
-
-      const selectedContentId = categoryMap[categoryTitle];
-
-      // Переход на слайд с каталогом
-      swiper.slideTo(1); // Предполагается, что второй слайд - это каталог
-
-      // Устанавливаем выбранный элемент в dropdown
-      document.querySelector(".dropdown-selected").innerText = categoryTitle;
-
-      // Отображаем нужный контент
-      showCategoryContent(selectedContentId);
-
-      // Обновляем высоту слайда
-      swiper.updateAutoHeight();
-    });
-  });
-
-  // Функция для показа нужного блока контента
-  function showCategoryContent(categoryId) {
-    // Скрываем все блоки
-    document.querySelectorAll(".category-content").forEach((content) => {
-      content.classList.remove("active");
-    });
-
-    // Показываем выбранный блок
-    const selectedContent = document.getElementById(categoryId);
-    if (selectedContent) {
-      selectedContent.classList.add("active");
-    }
-  }
-
-  // Обновление навигации при смене слайда
+  // Функция обновления навигации
   function updateNavigation() {
     const activeIndex = swiper.activeIndex;
     const navItems = document.querySelectorAll(".nav-link");
@@ -99,7 +34,113 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Навигация по главным ссылкам
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault(); // Предотвращаем стандартное поведение
+
+      const targetId = this.getAttribute("href");
+      const slideIndex = this.getAttribute("data-slide");
+
+      if (slideIndex === "0" && swiper.activeIndex === 0) {
+        // Для ссылки "Каталог" на первом слайде
+        document
+          .querySelector("#category")
+          .scrollIntoView({ behavior: "smooth" });
+      } else if (slideIndex === "0") {
+        // Если мы на другом слайде, переключаемся на первый и прокручиваем к каталогу
+        swiper.slideTo(0);
+        swiper.once("slideChangeTransitionEnd", function () {
+          document
+            .querySelector("#category")
+            .scrollIntoView({ behavior: "smooth" });
+        });
+      } else if (slideIndex === "2") {
+        // Для ссылки "Контакты" переключаемся на третий слайд
+        swiper.slideTo(2);
+      } else if (slideIndex === "3") {
+        // Действия для других случаев (если есть)
+        swiper.slideTo(0);
+      }
+    });
+  });
+
+  // Обработчики кликов по категориям каталога
+  document.querySelectorAll(".equipment-link").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      // Переход на второй слайд каталога
+      swiper.slideTo(1);
+      updateNavigation();
+
+      // Получаем название категории из ссылки
+      const categoryTitle = this.querySelector(".equipment-title").innerText;
+
+      // Устанавливаем выбранный элемент в селекте
+      document.querySelector(".dropdown-selected").innerText = categoryTitle;
+
+      // Показать соответствующий контент
+      const categoryMap = {
+        Электродвигатели: "content-electrodvigateli",
+        "Частотные преобразователи": "content-chastotnye-preobrazovateli",
+        "Фильтровальное оборудование": "content-filtr-oborudovanie",
+        "Насосные оборудования": "content-nasosnye-oborudovaniya",
+        "Силовая автоматика": "content-silovaya-avtomatika",
+        "Конвейерное оборудование": "content-konveyernoe-oborudovanie",
+        Газоочистка: "content-gazoochistka",
+        Гидроцилиндры: "content-gidrotsilindry",
+        Флотация: "content-flotaciya",
+        Металлопрокат: "content-metalloprokat",
+      };
+
+      showCategoryContent(categoryMap[categoryTitle]);
+      swiper.updateAutoHeight();
+    });
+  });
+
+  // Обработчики для селекта категорий
+  document.querySelectorAll(".dropdown-items li").forEach(function (item) {
+    item.addEventListener("click", function () {
+      const selectedCategory = this.innerText;
+      document.querySelector(".dropdown-selected").innerText = selectedCategory;
+      this.parentElement.classList.remove("show"); // Скрываем элементы списка
+      this.parentElement.parentElement.classList.remove("active"); // Убираем активный класс у родителя
+
+      // Показать соответствующий контент
+      const categoryMap = {
+        Электродвигатели: "content-electrodvigateli",
+        "Частотные преобразователи": "content-chastotnye-preobrazovateli",
+        "Фильтровальное оборудование": "content-filtr-oborudovanie",
+        "Насосные оборудования": "content-nasosnye-oborudovaniya",
+        "Силовая автоматика": "content-silovaya-avtomatika",
+        "Конвейерное оборудование": "content-konveyernoe-oborudovanie",
+        Газоочистка: "content-gazoochistka",
+        Гидроцилиндры: "content-gidrotsilindry",
+        Флотация: "content-flotaciya",
+        Металлопрокат: "content-metalloprokat",
+      };
+
+      showCategoryContent(categoryMap[selectedCategory]);
+      swiper.updateAutoHeight();
+    });
+  });
+
+  // Функция для показа нужного блока контента
+  function showCategoryContent(categoryId) {
+    document.querySelectorAll(".category-content").forEach((content) => {
+      content.classList.remove("active");
+    });
+
+    const selectedContent = document.getElementById(categoryId);
+    if (selectedContent) {
+      selectedContent.classList.add("active");
+    }
+  }
+
   updateNavigation(); // Инициализация навигации при загрузке страницы
+
+  // Добавьте другие функции, которые могут быть необходимы
 
   // Функционал для кнопки "Сотрудничество"
   document
