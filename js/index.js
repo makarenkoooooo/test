@@ -251,4 +251,31 @@ document.querySelectorAll(".equipment-link.link-product").forEach((item) => {
   });
 });
 
-// кнопка партнеров
+// модалка сертификата
+
+document.querySelectorAll(".certificate-lang").forEach(function (element) {
+  element.addEventListener("click", function () {
+    // Получаем название сертификата (например, RUS или KAZ)
+    const lang = this.textContent;
+
+    // Здесь можно задать путь к изображению сертификата в зависимости от языка
+    // Например, пусть это будут файлы cert-rus.jpg и cert-kaz.jpg
+    const imagePath =
+      lang === "RUS"
+        ? "./assets/sertificate/sert-1.png"
+        : "./assets/sertificate/sert-1.png";
+
+    // Устанавливаем изображение в модальное окно
+    document.getElementById("modal-image").src = imagePath;
+
+    // Показываем модальное окно и затемняющий фон
+    document.getElementById("modal-overlay").style.display = "block";
+    document.getElementById("modal").style.display = "block";
+  });
+});
+
+// Закрытие модального окна при клике на затемняющий фон
+document.getElementById("modal-overlay").addEventListener("click", function () {
+  document.getElementById("modal-overlay").style.display = "none";
+  document.getElementById("modal").style.display = "none";
+});
