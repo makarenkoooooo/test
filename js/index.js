@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     autoHeight: true,
     slidesPerView: 1,
     spaceBetween: 0,
-    allowTouchMove: true,
+    allowTouchMove: false,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -41,26 +41,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const targetId = this.getAttribute("href");
       const slideIndex = this.getAttribute("data-slide");
-
-      if (slideIndex === "0" && swiper.activeIndex === 0) {
-        // Для ссылки "Каталог" на первом слайде
-        document
-          .querySelector("#category")
-          .scrollIntoView({ behavior: "smooth" });
-      } else if (slideIndex === "0") {
-        // Если мы на другом слайде, переключаемся на первый и прокручиваем к каталогу
-        swiper.slideTo(0);
-        swiper.once("slideChangeTransitionEnd", function () {
-          document
-            .querySelector("#category")
-            .scrollIntoView({ behavior: "smooth" });
-        });
+      if (slideIndex === "0") {
+        // Для ссылки "Главная" и "Каталог"
+        if (this.textContent === "Главная") {
+          // Если нажата ссылка "Главная"
+          if (swiper.activeIndex !== 0) {
+            // Если активен не первый слайд, переключаемся на первый слайд без прокрутки
+            swiper.slideTo(0);
+          }
+        } else if (this.textContent === "Каталог") {
+          // Если нажата ссылка "Каталог"
+          if (swiper.activeIndex === 0) {
+            // Если уже на первом слайде, просто прокручиваем к секции каталога
+            document
+              .querySelector("#category")
+              .scrollIntoView({ behavior: "smooth" });
+          } else {
+            // Если на других слайдах, переключаемся на первый слайд и затем прокручиваем к каталогу
+            swiper.slideTo(0);
+            swiper.once("slideChangeTransitionEnd", function () {
+              document
+                .querySelector("#category")
+                .scrollIntoView({ behavior: "smooth" });
+            });
+          }
+        }
       } else if (slideIndex === "2") {
         // Для ссылки "Контакты" переключаемся на третий слайд
         swiper.slideTo(2);
-      } else if (slideIndex === "3") {
-        // Действия для других случаев (если есть)
-        swiper.slideTo(0);
       }
     });
   });
