@@ -1917,6 +1917,9 @@
       let animationID;
       let autoScrolling = true;
 
+      // Duplicate the carousel items to create an infinite loop effect
+      track.innerHTML += track.innerHTML;
+
       // Function to set the position of the carousel
       function setPosition() {
         track.style.transform = `translateX(${currentTranslate}px)`;
@@ -1948,19 +1951,24 @@
       window.addEventListener("touchmove", drag);
 
       function startDrag(e) {
+        e.preventDefault(); // Prevent default behavior like text selection
         cancelAnimationFrame(animationID); // Stop auto scroll on drag
         isDragging = true;
         startPos = getPositionX(e);
         prevTranslate = currentTranslate;
         track.style.cursor = "grabbing"; // Change cursor to grabbing for better UX
+        track.style.transition = "none"; // Disable transition during drag
         autoScrolling = false; // Stop auto-scroll while dragging
       }
 
       function endDrag() {
-        isDragging = false;
-        track.style.cursor = "grab"; // Reset cursor
-        autoScrolling = true; // Resume auto-scroll after dragging
-        autoScroll();
+        if (isDragging) {
+          isDragging = false;
+          track.style.cursor = "grab"; // Reset cursor
+          autoScrolling = true; // Resume auto-scroll after dragging
+          track.style.transition = "transform 0.3s ease"; // Add transition for smooth effect
+          autoScroll();
+        }
       }
 
       function drag(e) {
