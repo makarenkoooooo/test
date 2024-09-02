@@ -279,3 +279,22 @@ document.getElementById("modal-overlay").addEventListener("click", function () {
   document.getElementById("modal-overlay").style.display = "none";
   document.getElementById("modal").style.display = "none";
 });
+
+// форма битрикс
+
+const formBtn = document.querySelector(".customBitrixButton");
+const form = document.querySelector(".container-form");
+const closeButton = document.querySelector(".close-button");
+
+formBtn.addEventListener("click", function () {
+  form.classList.add("active");
+});
+
+closeButton.addEventListener("click", function () {
+  form.classList.remove("active");
+});
+
+function openBitrixForm() {
+  const formContainer = document.querySelector(".container-form");
+  formContainer.classList.add("active");
+}

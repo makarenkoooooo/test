@@ -774,32 +774,31 @@ h2 {
 }
 
 .carousel-container {
-  overflow: hidden; /* Прячем содержимое, выходящее за пределы контейнера */
+  overflow: hidden; /* Hide overflowing content */
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
 
 .carousel-track {
-  display: flex; /* Flexbox для горизонтального расположения элементов */
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: flex; /* Align items in a row */
   align-items: center;
-  will-change: transform; /* Оптимизация производительности */
-  transition: transform 0.3s ease; /* Плавная анимация для прокрутки */
+  gap: 20px; /* Space between carousel items */
+  will-change: transform; /* Optimize performance */
+  transition: transform 0.5s linear; /* Smooth transition */
 }
 
 .carousel-item {
-  flex: 0 0 auto; /* Элементы не сжимаются и не растягиваются */
-  width: 150px; /* Фиксированная ширина каждого элемента */
-  margin: 10px; /* Отступы между элементами */
+  flex: 0 0 auto; /* Prevent shrinking and growing */
+  width: 150px; /* Width of each item */
+  margin: 10px; /* Margin around each item */
 }
 
 .carousel-item img {
-  width: 500px;
+  width: 100%; /* Responsive image */
   height: auto;
   display: block;
+  border-radius: 5px; /* Optional rounded corners */
 }
 
 /* logo wrap */
@@ -1683,4 +1682,37 @@ h2 {
   .equipment-title:hover {
     transform: none !important;
   }
+}
+
+/* форма битрикса */
+
+.container-form {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  z-index: 10;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.container-form.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-button {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  background: none;
+  border: none;
 }
