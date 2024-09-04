@@ -221,19 +221,6 @@ document.addEventListener("DOMContentLoaded", function () {
       swiper.updateAutoHeight(); // Обновляем высоту слайда
     });
   });
-
-  // Копирование номера телефона в буфер обмена при клике
-  function copyPhoneNumber(element) {
-    var phoneNumber = element.textContent; // Получаем текст номера телефона
-    navigator.clipboard.writeText(phoneNumber).then(
-      function () {
-        alert("Номер скопирован: " + phoneNumber); // Показываем уведомление об успешном копировании
-      },
-      function (err) {
-        console.error("Ошибка при копировании текста: ", err); // Показываем ошибку в случае неудачи
-      }
-    );
-  }
 });
 
 // модалка сертификата

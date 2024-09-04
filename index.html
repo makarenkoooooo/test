@@ -2101,6 +2101,29 @@
       }
     </script>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function copyPhoneNumber(element) {
+          var phoneNumber = element.textContent;
+          navigator.clipboard.writeText(phoneNumber).then(
+            function () {
+              alert("Номер скопирован: " + phoneNumber);
+            },
+            function (err) {
+              console.error("Ошибка при копировании текста: ", err);
+            }
+          );
+        }
+
+        // Добавляем обработчики событий для элементов с номерами телефонов
+        document.querySelectorAll(".phone-number").forEach((phone) => {
+          phone.addEventListener("click", function () {
+            copyPhoneNumber(phone);
+          });
+        });
+      });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <!-- Flickity JS -->
   </body>
