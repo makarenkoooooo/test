@@ -234,21 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     );
   }
-
-  // Добавляем обработчики событий для элементов с номерами телефонов
-  document.querySelectorAll(".phone-number").forEach((phone) => {
-    phone.addEventListener("click", function () {
-      copyPhoneNumber(phone);
-    });
-  });
-});
-
-document.querySelectorAll(".equipment-link.link-product").forEach((item) => {
-  item.addEventListener("click", function (event) {
-    event.preventDefault(); // Предотвращает выполнение стандартного действия
-    event.stopPropagation(); // Останавливает всплытие события
-    // Если есть дополнительные действия, которые нужно предотвратить, можно добавить их сюда
-  });
 });
 
 // модалка сертификата
@@ -329,3 +314,10 @@ function openBitrixForm() {
   const formContainer = document.querySelector(".container-form");
   formContainer.classList.add("active");
 }
+
+document
+  .querySelector(".dropdown-selected")
+  .addEventListener("click", function () {
+    console.log("Dropdown clicked");
+    this.parentElement.classList.toggle("active");
+  });
