@@ -253,32 +253,63 @@ document.querySelectorAll(".equipment-link.link-product").forEach((item) => {
 
 // модалка сертификата
 
-document.querySelectorAll(".certificate-lang").forEach(function (element) {
-  element.addEventListener("click", function () {
-    // Получаем название сертификата (например, RUS или KAZ)
-    const lang = this.textContent;
+function openModal(certNumber, lang) {
+  let imagesContainer = document.getElementById("certificateImages");
+  imagesContainer.innerHTML = ""; // Очищаем предыдущие изображения
 
-    // Здесь можно задать путь к изображению сертификата в зависимости от языка
-    // Например, пусть это будут файлы cert-rus.jpg и cert-kaz.jpg
-    const imagePath =
-      lang === "RUS"
-        ? "./assets/sertificate/sert-1.png"
-        : "./assets/sertificate/sert-1.png";
+  let images = [];
 
-    // Устанавливаем изображение в модальное окно
-    document.getElementById("modal-image").src = imagePath;
+  if (certNumber === "9001") {
+    if (lang === "rus") {
+      images = ["Сертификат-9001-рус-1.png", "Сертификат-9001-рус-2.png"];
+    } else if (lang === "kaz") {
+      images = ["Сертификат-9001-каз-1.png", "Сертификат-9001-каз-2.png"];
+    }
+  } else if (certNumber === "14001") {
+    if (lang === "rus") {
+      images = ["Сертификат-14001-рус-1.png", "Сертификат-14001-рус-2.png"];
+    } else if (lang === "kaz") {
+      images = ["Сертификат-14001-каз-1.png", "Сертификат-14001-каз-2.png"];
+    }
+  } else if (certNumber === "45001") {
+    if (lang === "rus") {
+      images = ["Сертификат-45001-рус-1.png", "Сертификат-45001-рус-2.png"];
+    } else if (lang === "kaz") {
+      images = ["Сертификат-45001-каз-1.png", "Сертификат-45001-каз-2.png"];
+    }
+  } else if (certNumber === "Ozen") {
+    if (lang === "rus") {
+      images = ["ozen.png"];
+    }
+  } else if (certNumber === "ManTrade") {
+    if (lang === "rus") {
+      images = ["ТОО-Man-Trade-1.png"];
+    }
+  } else if (certNumber === "Samson") {
+    if (lang === "rus") {
+      images = ["Samson.png"];
+    }
+  }
 
-    // Показываем модальное окно и затемняющий фон
-    document.getElementById("modal-overlay").style.display = "block";
-    document.getElementById("modal").style.display = "block";
+  images.forEach((image) => {
+    let imgElement = document.createElement("img");
+    imgElement.src = "./assets/sertificate/" + image;
+    imagesContainer.appendChild(imgElement);
   });
-});
 
-// Закрытие модального окна при клике на затемняющий фон
-document.getElementById("modal-overlay").addEventListener("click", function () {
-  document.getElementById("modal-overlay").style.display = "none";
-  document.getElementById("modal").style.display = "none";
-});
+  document.getElementById("certificateModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("certificateModal").style.display = "none";
+}
+
+window.onclick = function (event) {
+  let modal = document.getElementById("certificateModal");
+  if (event.target === modal) {
+    closeModal();
+  }
+};
 
 // форма битрикс
 
