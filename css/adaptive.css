@@ -1088,7 +1088,7 @@ h2 {
 }
 
 .contact-block.visible {
-  top: 80px;
+  top: 85px;
   right: 55px;
   opacity: 1; /* Устанавливаем видимость */
   visibility: visible; /* Делаем блок видимым */
